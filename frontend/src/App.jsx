@@ -25,7 +25,7 @@ function App() {
   const [searchProduct, setSearchProduct] = useState('');
   const [addProductForm, setAddProductForm] = useState(false);
   const fetchProducts = async () => {
-    const res = await axios.get(API, { withCredentials: true });
+    const res = await axios.get(API);
     setProducts(res.data);
   };
 
