@@ -11,7 +11,7 @@ fastify.register(cors, {
   credentials: true
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const sequelize = new Sequelize(process.env.DB_URL,{
   dialectOptions: {
     ssl: {

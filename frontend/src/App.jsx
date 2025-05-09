@@ -6,7 +6,7 @@ import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
 const API = import.meta.env.VITE_API;
-
+// const API = 'http://localhost:3001/products';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -26,6 +26,7 @@ function App() {
   const [addProductForm, setAddProductForm] = useState(false);
   const fetchProducts = async () => {
     const res = await axios.get(API);
+    console.log('API response:', res.data);
     setProducts(res.data);
   };
 
@@ -96,14 +97,14 @@ function App() {
     setAddProductForm(false);
     setDropdownOpenId(dropdownOpenId === id ? null : id);
   };
-  const filteredProducts = products.filter((p) => {
+  const filteredProducts = Array.isArray(products) ? products.filter((p) => {
     const articleMatch = searchArticle === '' || p.article_no.toString() === searchArticle;
     const productMatch = p.product_service?.toString().toLowerCase().includes(searchProduct.toLowerCase());
     return articleMatch && productMatch;
-  });
+  }) : [];
   return (
     <div className="app-container">
-      <NavBar/>
+      <NavBar />
       <div className='main-layout'>
         <div className='left-pannel'>
           <h2>Menu</h2>
@@ -116,72 +117,81 @@ function App() {
             <li>F</li>
           </ul>
         </div>
-        <div  style={{ padding: 30 }}>
-          <div className='right-pannel' style={{ marginBottom: 20, display: 'flex' }}>
-            <div className="search-container">
-              <input
-                placeholder="Search by Article No"
-                value={searchArticle}
-                onChange={(e) => setSearchArticle(e.target.value)}
-                style={{ marginRight: 10 }}
-              />
-              <input
-                placeholder="Search by Product Name"
-                value={searchProduct}
-                onChange={(e) => setSearchProduct(e.target.value)}
-              />
-            </div>
-            <div className="button-group">
-              <div style={{ display: 'flex' }}>
+        <div style={{ padding: 30 }}>
+          <div className='right-pannel'>
+            <div className='right-pannel-top' >
+              <div className="search-container" >
                 <div>
-                  {(
-                    <button onClick={() => setAddProductForm(true)}>
-                      New Product
-                    </button>
-                  )}
-                </div>
-                <div>
-                  <button>Print list</button>
-                </div>
-                <div>
-                  <button>Advanced</button>
-                </div>
-
-              </div>
-              <div>
-                {(addProductForm && editingId === null) && (
-                  <ProductForm
-                    formData={formData}
-                    setFormData={setFormData}
-                    handleSubmit={handleSubmit}
-                    editingId={editingId}
+                  <input
+                    placeholder="Search by Article No"
+                    value={searchArticle}
+                    onChange={(e) => setSearchArticle(e.target.value)}
+                    style={{ marginRight: 1 }}
                   />
-                )}
+                </div>
+                <div>
+                  <input
+                    placeholder="Search by Product Name"
+                    value={searchProduct}
+                    onChange={(e) => setSearchProduct(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="button-group">
+                <div style={{ display: 'flex' }}>
+                  <div>
+                    {(
+                      <button onClick={() => setAddProductForm(true)}>
+                        New Product
+                      </button>
+                    )}
+                    <div >
+                      {(addProductForm && editingId === null) && (
+                        <ProductForm
+                          formData={formData}
+                          setFormData={setFormData}
+                          handleSubmit={handleSubmit}
+                          editingId={editingId}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <button>Print list</button>
+                  </div>
+                  <div>
+                    <button>Advanced</button>
+                  </div>
+                </div>
+
               </div>
 
-
+            </div>
+            <div className='right-pannel-down'>
+              {(editingId) && (
+                <ProductForm
+                  formData={formData}
+                  setFormData={setFormData}
+                  handleSubmit={handleEdit}
+                  editingId={editingId}
+                />
+              )}
             </div>
 
-          </div>
-          {/* Product Table Component */}
-
-          <div>
-            {(editingId) && (
-              <ProductForm
-                formData={formData}
-                setFormData={setFormData}
-                handleSubmit={handleEdit}
-                editingId={editingId}
+            <div >
+              <ProductTable
+                products={filteredProducts}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+                toggleDropdown={toggleDropdown}
+                dropdownOpenId={dropdownOpenId}
               />
-            )}
+            </div>
+
+
           </div>
-          <ProductTable
-            products={filteredProducts}
-            handleEdit={handleEdit}
-            handleDelete={handleDelete}
-            toggleDropdown={toggleDropdown}
-            dropdownOpenId={dropdownOpenId}
-          />
+
+
         </div>
       </div>
     </div>
