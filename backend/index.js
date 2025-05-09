@@ -12,7 +12,14 @@ fastify.register(cors, {
 });
 
 const PORT = process.env.PORT || 3000;
-const sequelize = new Sequelize(process.env.DB_URL);
+const sequelize = new Sequelize(process.env.DB_URL,{
+  dialectOptions: {
+    ssl: {
+      require: true, 
+      rejectUnauthorized: false, 
+    }
+  }
+});
 
 // Define model
 const Item = sequelize.define('Item', {
