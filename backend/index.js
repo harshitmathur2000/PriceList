@@ -6,7 +6,7 @@ dotenv.config();
 
 const fastify = Fastify();
 fastify.register(cors, {
-  origin: true,
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 });
