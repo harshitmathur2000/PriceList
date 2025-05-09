@@ -1,0 +1,20 @@
+.table-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 14px;
+  table-layout: fixed;
+}
+
+.table-scroll-body {
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.table-scroll-body::-webkit-scrollbar {
+  display: none;
+}

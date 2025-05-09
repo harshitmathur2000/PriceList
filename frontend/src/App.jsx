@@ -177,24 +177,23 @@ function App() {
                 />
               )}
             </div>
-
-            <div className='table-container'>
-              <ProductTable
-                products={filteredProducts}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-                toggleDropdown={toggleDropdown}
-                dropdownOpenId={dropdownOpenId}
-              />
-            </div>
-
-
+            <div >
+            <ProductTable
+              products={filteredProducts}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+              toggleDropdown={toggleDropdown}
+              dropdownOpenId={dropdownOpenId}
+            />
           </div>
 
 
         </div>
+
+
       </div>
     </div>
+    </div >
   );
 }
 
