@@ -26,7 +26,7 @@ function App() {
   const [addProductForm, setAddProductForm] = useState(false);
   const fetchProducts = async () => {
     const res = await axios.get(API);
-    console.log(red.data);
+    console.log(res.data);
     setProducts(res.data);
   };
 
