@@ -5,7 +5,8 @@ import ProductForm from './components/productForm';
 import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
-const API = 'http://localhost:3001/products';
+const API = process.env.REACT_APP_API;
+
 
 function App() {
   const [products, setProducts] = useState([]);
