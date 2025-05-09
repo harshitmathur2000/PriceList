@@ -6,7 +6,7 @@ dotenv.config();
 
 const fastify = Fastify();
 fastify.register(cors, {
-  origin: 'https://price-list-one.vercel.app/',
+  origin: ['https://price-list-one.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 });
