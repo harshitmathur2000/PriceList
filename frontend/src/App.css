@@ -139,12 +139,12 @@ button:hover {
 }
 
 
-.table-container{
+tbody{
   overflow-y: scroll;
   height: 50vh;
   
 }
-.table-container::-webkit-scrollbar {
+tbody::-webkit-scrollbar {
   display: none; 
 }
 table {
