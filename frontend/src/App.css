@@ -141,6 +141,7 @@ button:hover {
 
 .table-container{
   overflow-y: scroll;
+  height: 50vh;
   
 }
 .table-container::-webkit-scrollbar {
