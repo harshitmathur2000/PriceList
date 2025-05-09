@@ -5,7 +5,7 @@ import ProductForm from './components/productForm';
 import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
-const API = process.env.REACT_APP_API;
+const API = import.meta.env.VITE_API;
 
 
 function App() {
