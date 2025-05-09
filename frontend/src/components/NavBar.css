@@ -1,4 +1,4 @@
-/* Base styles */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@
     font-weight: 500;
   }
   
-  /* Hamburger menu hidden by default */
+
   .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -47,7 +47,7 @@
     border-radius: 2px;
   }
   
-  /* Responsive for tablets and below */
+
   @media (max-width: 1024px) {
     .navbar-left {
       display: none;

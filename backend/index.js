@@ -65,7 +65,7 @@ const Item = sequelize.define('Item', {
   timestamps: false,
 });
 
-// Routes
+
 fastify.get('/products', async (_, reply) => {
   const items = await Item.findAll();
   return items;
@@ -81,17 +81,17 @@ fastify.put('/products/:id', async (req, reply) => {
   const { id } = req.params;
   const data = req.body;
 
-  // Find the product by ID
+
   const item = await Item.findByPk(id);
 
   if (!item) {
     return reply.status(404).send({ message: 'Product not found' });
   }
 
-  // Update the item with new data
+
   const updatedItem = await item.update({
     ...data,
-    updated_on: new Date(), // Update the timestamp
+    updated_on: new Date(), 
   });
 
   return updatedItem;
@@ -103,7 +103,7 @@ fastify.delete('/products/:id', async (req, reply) => {
   return { message: deleted ? 'Deleted successfully' : 'Not found' };
 });
 
-// Start
+
 const start = async () => {
   try {
     await sequelize.authenticate();
