@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 const sequelize = new Sequelize(process.env.DB_URL,{
   dialectOptions: {
     ssl: {
-      require: true, 
+      require: true,  
       rejectUnauthorized: false, 
     }
   }

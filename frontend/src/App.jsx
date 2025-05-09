@@ -178,7 +178,7 @@ function App() {
               )}
             </div>
 
-            <div >
+            <div className='table-container'>
               <ProductTable
                 products={filteredProducts}
                 handleEdit={handleEdit}

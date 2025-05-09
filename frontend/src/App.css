@@ -3,13 +3,18 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  display: none; 
+}
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff;
   width: 100%;
-  overflow-x: hidden;
+  position: fixed;
+  height: 100%;
+  
 }
 
 /* Profile Section */
@@ -47,7 +52,7 @@ html, body {
   display: flex;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  
 }
 
 .right-pannel-top {
@@ -94,11 +99,11 @@ html, body {
 }
 
 .right-pannel {
-  flex: 1;
+  
   min-width: 0;
   padding: 10px 40px 40px 40px;
-  background-color: #f9f9fb;
-  overflow-x: auto;
+  
+  
 }
 
 /* Input & Button */
@@ -133,7 +138,14 @@ button:hover {
   display: block;
 }
 
-/* Table Styling */
+
+.table-container{
+  overflow-y: scroll;
+  
+}
+.table-container::-webkit-scrollbar {
+  display: none; 
+}
 table {
   width: 100%;
   border-collapse: separate;
@@ -145,20 +157,16 @@ th {
   background-color: white;
   font-weight: 600;
   padding: 10px 18px;
-  color: #555;
-  font-size: 13px;
-  text-align: left;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 
 td {
   background-color: #ffffff;
-  border-radius: 40px;
-  padding: 14px 18px;
   color: #333;
-  font-size: 14px;
+  align-items: center;
+  text-align: center;
   white-space: nowrap;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -180,6 +188,7 @@ td {
 @media screen and (max-width: 1024px) {
   .main-layout {
     flex-direction: column;
+    font-size: smaller;
   }
   .search-container div{
     justify-self: center;
@@ -208,7 +217,7 @@ td {
 /* Tablet portrait and below */
 @media screen and (max-width: 768px) {
   .right-pannel {
-    padding: 80px 16px 24px 16px;
+    padding: 10px 16px 16px 16px;
   }
 
   .right-pannel-top {
@@ -216,8 +225,8 @@ td {
   }
 
   .button-group {
-    flex-direction: column;
-    align-items: flex-start;
+    
+    align-items: center;
     justify-self: center;
   }
 
@@ -241,7 +250,7 @@ td {
 
   table th:nth-child(2) {
     white-space: nowrap;
-    overflow: hidden;
+    
     text-overflow: ellipsis;
     max-width: 140px;
   }

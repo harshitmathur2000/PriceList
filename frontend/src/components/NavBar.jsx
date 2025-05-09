@@ -11,7 +11,7 @@ const NavBar = () => {
                 <span></span>
             </div>
             <div className="navbar-left">
-                <img src={'https://storage.123fakturere.no/public/flags/GB.png'} alt="Profile" className="profile-pic" />
+                <img src={'./src/assets/profile.png'} alt="Profile" className="profile-pic" />
                 <span className="username">John Doe</span>
             </div>
             <div className="navbar-right">
