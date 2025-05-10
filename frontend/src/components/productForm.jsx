@@ -8,7 +8,7 @@ const ProductForm = ({ formData, setFormData, handleSubmit, editingId }) => {
   };
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div className='product-form' style={{ marginBottom: 20 }}>
       {[
         'article_no',
         'product_service',
@@ -35,3 +35,4 @@ const ProductForm = ({ formData, setFormData, handleSubmit, editingId }) => {
 };
 
 export default ProductForm;
+ 

@@ -142,7 +142,7 @@ function App() {
                 </div>
               </div>
               <div className="button-group">
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex' ,flexWrap: 'wrap'}}>
                   <div>
                     {(
                       <button onClick={() => setAddProductForm(true)}>
@@ -150,16 +150,6 @@ function App() {
                         
                       </button>
                     )}
-                    <div >
-                      {(addProductForm && editingId === null) && (
-                        <ProductForm
-                          formData={formData}
-                          setFormData={setFormData}
-                          handleSubmit={handleSubmit}
-                          editingId={editingId}
-                        />
-                      )}
-                    </div>
                   </div>
                   <div>
                     <button>
@@ -174,10 +164,19 @@ function App() {
                     </button>
                   </div>
                 </div>
-
+              
               </div>
-
             </div>
+            <div >
+                      {(addProductForm && editingId === null) && (
+                        <ProductForm
+                          formData={formData}
+                          setFormData={setFormData}
+                          handleSubmit={handleSubmit}
+                          editingId={editingId}
+                        />
+                      )}
+                    </div>
             <div className='right-pannel-down'>
               {(editingId) && (
                 <ProductForm
