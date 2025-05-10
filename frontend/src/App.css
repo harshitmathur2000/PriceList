@@ -248,12 +248,7 @@ td {
     display: block;
    
   }
-  .search-container{
-    width: inherit;
-  }
-  .button-group{
-    width: max-content;
-  }
+
   .button-group button {
     margin: 0;
     margin-bottom: 10px;
