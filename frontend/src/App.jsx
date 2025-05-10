@@ -1,5 +1,6 @@
 
-import { useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
+
 import axios from 'axios';
 import ProductForm from './components/productForm';
 import ProductTable from './components/productTable';
@@ -22,6 +23,7 @@ function App() {
     in_stock: '',
     description: '',
   });
+  const formRef = useRef(null);
   const [editingId, setEditingId] = useState(null);
   const [dropdownOpenId, setDropdownOpenId] = useState(null);
   const [searchArticle, setSearchArticle] = useState('');
@@ -34,8 +36,19 @@ function App() {
   };
 
   useEffect(() => {
-    
     fetchProducts();
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        setAddProductForm(false);
+        setEditingId(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+    
   }, []);
 
   const handleSubmit = async () => {
@@ -142,42 +155,42 @@ function App() {
                 </div>
               </div>
               <div className="button-group">
-                <div style={{ display: 'flex' ,flexWrap: 'wrap'}}>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   <div>
                     {(
                       <button onClick={() => setAddProductForm(true)}>
-                        <div className='button-text'>New Product</div><img src={plus} style={{height: 15, width: 15}}/>
-                        
+                        <div className='button-text'>New Product</div><img src={plus} style={{ height: 15, width: 15 }} />
+
                       </button>
                     )}
                   </div>
                   <div>
                     <button>
                       <div className='button-text'>Print list</div>
-                      <img src={print} style={{height: 15, width: 15}}/>
+                      <img src={print} style={{ height: 15, width: 15 }} />
                     </button>
                   </div>
                   <div>
                     <button>
                       <div className='button-text'>Advanced</div>
-                      <img src={toggle} style={{height: 15, width: 15}}/>
+                      <img src={toggle} style={{ height: 15, width: 15 }} />
                     </button>
                   </div>
                 </div>
-              
+
               </div>
             </div>
-            <div >
-                      {(addProductForm && editingId === null) && (
-                        <ProductForm
-                          formData={formData}
-                          setFormData={setFormData}
-                          handleSubmit={handleSubmit}
-                          editingId={editingId}
-                        />
-                      )}
-                    </div>
-            <div className='right-pannel-down'>
+            <div ref={formRef}>
+              {(addProductForm && editingId === null) && (
+                <ProductForm
+                  formData={formData}
+                  setFormData={setFormData}
+                  handleSubmit={handleSubmit}
+                  editingId={editingId}
+                />
+              )}
+            </div>
+            <div className='right-pannel-down' ref={formRef}>
               {(editingId) && (
                 <ProductForm
                   formData={formData}
@@ -188,21 +201,21 @@ function App() {
               )}
             </div>
             <div >
-            <ProductTable
-              products={filteredProducts}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-              toggleDropdown={toggleDropdown}
-              dropdownOpenId={dropdownOpenId}
-            />
+              <ProductTable
+                products={filteredProducts}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+                toggleDropdown={toggleDropdown}
+                dropdownOpenId={dropdownOpenId}
+              />
+            </div>
+
+
           </div>
 
 
         </div>
-
-
       </div>
-    </div>
     </div >
   );
 }
