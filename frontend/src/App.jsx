@@ -6,7 +6,7 @@ import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
 const API = import.meta.env.VITE_API;
-// const API = 'http://localhost:3001/products';
+
 
 function App() {
   const [products, setProducts] = useState([]);
