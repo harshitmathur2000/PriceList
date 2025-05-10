@@ -15,7 +15,7 @@ const NavBar = () => {
                 <span className="username">John Doe</span>
             </div>
             <div className="navbar-right">
-                <img src={'https://storage.123fakturere.no/public/flags/GB.png'} alt="English UK" className="profile-pic" />
+                <img src={'https://storage.123fakturere.no/public/flags/GB.png'} alt="English UK" className="flag-pic" />
                 <span className="language">English (UK)</span>
             </div>
             
