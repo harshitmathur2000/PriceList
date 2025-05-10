@@ -1,7 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 
-
+import profile from './assets/profile.png';
 const NavBar = () => {
     return (
         <nav className="navbar">
@@ -11,7 +11,7 @@ const NavBar = () => {
                 <span></span>
             </div>
             <div className="navbar-left">
-                <img src={'./assets/profile.png'} alt="Profile" className="profile-pic" />
+                <img src= {profile} alt="Profile" className="profile-pic" />
                 <span className="username">John Doe</span>
             </div>
             <div className="navbar-right">
