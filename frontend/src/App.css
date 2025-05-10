@@ -50,9 +50,8 @@ body {
 
 .right-pannel-top {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   padding: 3rem 3rem;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -241,8 +240,15 @@ td {
   .right-pannel {
     padding: 10px 16px 16px 16px;
   }
+  .button-text{
+    display: none;
+  }
+  .right-pannel-top {
 
-  
+  flex-wrap: wrap;
+  justify-content: center !important;
+}
+
   .button-group{
     width: max-content;
   }

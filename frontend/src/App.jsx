@@ -5,6 +5,9 @@ import ProductForm from './components/productForm';
 import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
+import plus from './components/assets/plus.png';
+import print from './components/assets/print.png'
+import toggle from './components/assets/toogle.webp';
 const API = import.meta.env.VITE_API;
 
 
@@ -143,7 +146,8 @@ function App() {
                   <div>
                     {(
                       <button onClick={() => setAddProductForm(true)}>
-                        New Product
+                        <div className='button-text'>New Product</div><img src={plus} style={{height: 15, width: 15}}/>
+                        
                       </button>
                     )}
                     <div >
@@ -158,10 +162,16 @@ function App() {
                     </div>
                   </div>
                   <div>
-                    <button><div className='button-text'>Print list</div></button>
+                    <button>
+                      <div className='button-text'>Print list</div>
+                      <img src={print} style={{height: 15, width: 15}}/>
+                    </button>
                   </div>
                   <div>
-                    <button>Advanced</button>
+                    <button>
+                      <div className='button-text'>Advanced</div>
+                      <img src={toggle} style={{height: 15, width: 15}}/>
+                    </button>
                   </div>
                 </div>
 
