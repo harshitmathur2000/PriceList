@@ -52,7 +52,8 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 3rem 3rem;
-
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .search-container {
@@ -97,7 +98,6 @@ body {
 
   min-width: 0;
   padding: 10px 40px 40px 40px;
-
 
 }
 
@@ -242,12 +242,9 @@ td {
     padding: 10px 16px 16px 16px;
   }
 
-  .right-pannel-top {
-    display: block;
-   
-  }
-  .search-container div{
-    justify-self: center !important;
+  
+  .button-group{
+    width: max-content;
   }
   .button-group button {
     margin: 0;
