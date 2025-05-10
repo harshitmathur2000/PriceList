@@ -247,12 +247,14 @@ td {
 
   .right-pannel-top {
     display: block;
-    
-    align-items: center;
-    justify-content: center;
+   
   }
-
-
+  .search-container{
+    width: inherit;
+  }
+  .button-group{
+    width: max-content;
+  }
   .button-group button {
     margin: 0;
     margin-bottom: 10px;
