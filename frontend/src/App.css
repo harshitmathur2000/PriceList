@@ -119,8 +119,6 @@ input[type="search"] {
 }
 .search-container {
   display: block;
-  justify-content: center;
-  align-items: center;
 }
 button {
   padding: 10px 16px;
@@ -248,8 +246,7 @@ td {
     display: block;
    
   }
-  .search-container{
-    align-items: center;
+  .search-container div{
     justify-content: center !important;
     justify-self: center !important;
   }
