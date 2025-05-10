@@ -247,7 +247,7 @@ td {
 
   .right-pannel-top {
     display: block;
-    width: fit-content;
+    
     align-items: center;
     justify-content: center;
   }
