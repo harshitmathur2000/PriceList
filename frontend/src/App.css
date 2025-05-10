@@ -249,7 +249,8 @@ td {
    
   }
   .search-container{
-    justify-self: center;
+    align-items: center;
+    justify-content: center;
   }
   .button-group button {
     margin: 0;
