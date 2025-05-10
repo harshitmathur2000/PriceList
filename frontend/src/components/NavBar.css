@@ -53,7 +53,10 @@
   }
   
 
-  @media (max-width: 1024px) {
+  @media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
     .navbar-left {
       display: none;
     }
@@ -63,3 +66,15 @@
     }
   }
   
+  @media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1){
+    .navbar-left {
+      display: none;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  }

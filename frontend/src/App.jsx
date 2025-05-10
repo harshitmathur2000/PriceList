@@ -5,8 +5,8 @@ import ProductForm from './components/productForm';
 import ProductTable from './components/productTable';
 import NavBar from './components/NavBar';
 import './App.css';
-// const API = import.meta.env.VITE_API;
-const API = 'http://localhost:3001/products';
+const API = import.meta.env.VITE_API;
+// const API = 'http://localhost:3001/products';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -31,6 +31,7 @@ function App() {
   };
 
   useEffect(() => {
+    
     fetchProducts();
   }, []);
 
@@ -157,7 +158,7 @@ function App() {
                     </div>
                   </div>
                   <div>
-                    <button>Print list</button>
+                    <button><div className='button-text'>Print list</div></button>
                   </div>
                   <div>
                     <button>Advanced</button>
