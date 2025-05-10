@@ -7,16 +7,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff;
   width: 100%;
+  min-height: 100%;
   position: fixed;
-  height: 100%;
-
 }
 
 
@@ -70,6 +68,11 @@ body {
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.03);
   flex-shrink: 0;
 }
+ .button-group {
+
+    align-items: center;
+    justify-self: center;
+  }
 
 .left-pannel ul {
   list-style: none;
@@ -141,7 +144,7 @@ table {
   table-layout: fixed;
 }
 
-th {
+table th {
   background-color: white;
   font-weight: 600;
   padding: 10px 18px;
@@ -184,7 +187,7 @@ td {
   }
 
   .left-pannel {
-    display: none;
+    display: none !important;
   }
 
   .hamburger-menu {
@@ -214,11 +217,7 @@ td {
     display: block;
   }
 
-  .button-group {
-
-    align-items: center;
-    justify-self: center;
-  }
+ 
 
   .button-group button {
     margin-bottom: 10px;
