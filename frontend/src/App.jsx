@@ -118,7 +118,7 @@ function App() {
             <li>F</li>
           </ul>
         </div>
-        <div style={{ padding: 30 }}>
+        <div style={{ padding: 20 }}>
           <div className='right-pannel'>
             <div className='right-pannel-top' >
               <div className="search-container" >

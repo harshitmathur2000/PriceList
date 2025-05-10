@@ -247,6 +247,7 @@ td {
 
   .right-pannel-top {
     display: block;
+    width: max-content;
   }
 
 
