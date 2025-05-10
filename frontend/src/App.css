@@ -248,7 +248,9 @@ td {
     display: block;
    
   }
-
+  .search-container{
+    justify-self: center;
+  }
   .button-group button {
     margin: 0;
     margin-bottom: 10px;
