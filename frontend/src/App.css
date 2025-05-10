@@ -239,7 +239,7 @@ td {
 }
 
 /* Tablet portrait and below */
-@media screen and (max-width: 768px)  {
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1)  {
   .right-pannel {
     padding: 10px 16px 16px 16px;
   }
@@ -250,8 +250,8 @@ td {
   }
   .search-container{
     align-items: center;
-    justify-content: center;
-    justify-self: center;
+    justify-content: center !important;
+    justify-self: center !important;
   }
   .button-group button {
     margin: 0;
